@@ -1,0 +1,52 @@
+/* app.component.css is the stylesheet for the component-  app.component.ts */
+
+@import '../styles/_variables.scss';
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $primary-dark;
+  color: $text-light;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+
+  &.terminal-mode {
+    background-color: #000;
+  }
+}
+
+.gui-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  padding: $spacing-lg;
+  margin: 0 240px; 
+  /* // Space for fixed sidebars */
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  height: calc(100vh - 60px); 
+  /* // Adjust based on header height */
+  
+  section {
+    min-height: 100vh;
+    padding: $spacing-xl 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.terminal-content {
+  flex: 1;
+  height: calc(100vh - 60px);
+  /* Adjust based on header height */
+}

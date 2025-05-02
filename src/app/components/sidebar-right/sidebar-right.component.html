@@ -1,0 +1,15 @@
+<!-- src/app/components/sidebar-right/sidebar-right.component.html -->
+<div class="sidebar-right">
+    <nav class="navigation">
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a [href]="link.link" [class.active]="link.active">
+            <span class="nav-indicator" [class.active]="link.active"></span>
+            <span class="nav-text">{{ link.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="vertical-line"></div>
+  </div>

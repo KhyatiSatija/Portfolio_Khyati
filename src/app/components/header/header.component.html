@@ -1,0 +1,16 @@
+<!-- src/app/components/header/header.component.html -->
+<header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="#">Khyati Satija</a>
+        </div>
+        
+        <div class="mode-toggle">
+          <button (click)="toggleMode()" class="toggle-button">
+            {{ isTerminalMode ? 'GUI' : 'CLI' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>

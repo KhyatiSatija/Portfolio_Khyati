@@ -1,0 +1,48 @@
+// src/app/components/header/header.component.scss
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  height: $header-height;
+  background-color: rgba($primary-dark, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-header;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .container {
+    height: 100%;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .logo {
+    a {
+      font-size: $font-size-large;
+      font-weight: 700;
+      @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple));
+    }
+  }
+  
+  .toggle-button {
+    background: transparent;
+    border: 1px solid $primary-violet;
+    color: $primary-light-purple;
+    padding: $spacing-xs $spacing-md;
+    border-radius: 4px;
+    transition: all $transition-fast;
+    font-family: $font-secondary;
+    
+    &:hover {
+      background: $primary-violet;
+      color: white;
+    }
+  }
+}

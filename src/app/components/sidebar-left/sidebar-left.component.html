@@ -1,0 +1,27 @@
+<!-- src/app/components/sidebar-left/sidebar-left.component.html -->
+<div class="sidebar-left">
+    <div class="logo">
+      <div class="logo-circle">
+        <span>KS</span>
+      </div>
+    </div>
+    
+    <div class="social-links">
+      <ul>
+        <li *ngFor="let link of socialLinks">
+          <a [href]="link.url" target="_blank" [attr.aria-label]="link.name">
+            <i [class]="link.icon"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="resume-button">
+      <a href="#" class="download-btn" download>
+        <i class="fas fa-file-download"></i>
+        <span>Resume</span>
+      </a>
+    </div>
+    
+    <div class="vertical-line"></div>
+  </div>
