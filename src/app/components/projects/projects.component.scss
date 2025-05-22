@@ -1,0 +1,175 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.projects-container {
+  padding: $spacing-xl;
+  background-color: $primary-dark;
+  min-height: 100vh;
+  position: relative;
+}
+
+.section-heading {
+  h2 {
+    @include section-heading;
+  }
+}
+
+.projects-filter {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  
+  @include respond-to(sm) {
+    justify-content: flex-start;
+  }
+}
+
+.filter-btn {
+  background: transparent;
+  border: none;
+  color: $text-muted;
+  font-size: $font-size-medium;
+  font-weight: 500;
+  padding: $spacing-xs $spacing-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, $primary-violet, $primary-light-purple);
+    transition: width $transition-fast;
+  }
+  
+  &:hover, &.active {
+    color: $text-light;
+    
+    &:after {
+      width: 100%;
+    }
+  }
+  
+  &.active {
+    color: $primary-violet;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-xl;
+  
+  @include respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+  
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  @include card;
+  overflow: hidden;
+  padding: 0;
+  
+  &:hover {
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.project-image {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-medium;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($primary-dark, 0.8);
+  @include flex-center;
+  opacity: 0;
+  transition: opacity $transition-medium;
+}
+
+.project-links {
+  @include flex-center;
+  gap: $spacing-md;
+}
+
+.project-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba($primary-violet, 0.3);
+  @include flex-center;
+  color: $text-light;
+  font-size: $font-size-medium;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background: $primary-violet;
+    transform: translateY(-3px);
+  }
+}
+
+.project-info {
+  padding: $spacing-md;
+  
+  h3 {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-sm;
+    color: $text-light;
+  }
+  
+  p {
+    font-size: $font-size-small;
+    color: $text-muted;
+    margin-bottom: $spacing-md;
+    line-height: 1.6;
+  }
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-top: $spacing-sm;
+}
+
+.tech-tag {
+  background: rgba($primary-violet, 0.1);
+  color: $primary-violet;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 50px;
+  font-size: $font-size-small;
+  font-family: $font-secondary;
+}

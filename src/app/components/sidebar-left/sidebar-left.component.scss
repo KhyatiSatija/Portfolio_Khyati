@@ -1,70 +1,72 @@
-// src/app/components/sidebar-left/sidebar-left.component.scss
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
 .sidebar-left {
   position: fixed;
   top: $header-height;
-  left: 0;
+  left: 0; // Change from 80px to 0
   height: calc(100vh - #{$header-height});
-  width: $sidebar-width;
+  width: 60px; // Reduced from sidebar-width variable
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $spacing-xl 0;
+  padding: $spacing-lg 0;
   z-index: $z-index-sidebar;
-  background-color: rgba($primary-dark, 0.4);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  
+  background-color: rgba($primary-dark, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+
   .logo {
-    margin-bottom: $spacing-xl;
-    
+    margin-bottom: $spacing-md;
+
     .logo-circle {
-      width: 60px;
-      height: 60px;
+      width: 36px; // Reduced from 60px
+      height: 36px; // Reduced from 60px
       border-radius: 50%;
       background: linear-gradient(135deg, $primary-violet, $primary-purple);
       @include flex-center;
-      
+
       span {
         color: white;
         font-weight: bold;
-        font-size: $font-size-large;
+        font-size: $font-size-medium; // Reduced from large
       }
     }
   }
-  
+
   .social-links {
-    margin-top: $spacing-lg;
+    margin-top: $spacing-md;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     ul {
       list-style: none;
-      
+      padding: 0;
+      margin: 0;
+
       li {
-        margin-bottom: $spacing-lg;
-        
+        margin-bottom: $spacing-md;
+
         a {
           display: block;
-          width: 40px;
-          height: 40px;
+          width: 32px; // Reduced from 40px
+          height: 32px; // Reduced from 40px
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.05);
           @include flex-center;
           transition: all $transition-medium;
-          
+
           i {
             color: $text-light;
-            font-size: $font-size-medium;
+            font-size: $font-size-small; // Reduced from medium
           }
-          
+
           &:hover {
             background: $primary-violet;
-            transform: translateY(-3px);
-            
+            transform: translateY(-2px); // Reduced from -3px
+
             i {
               color: white;
             }
@@ -73,49 +75,43 @@
       }
     }
   }
-  
+
   .resume-button {
     margin-top: auto;
-    margin-bottom: $spacing-xl;
-    
+    margin-bottom: $spacing-md;
+
     .download-btn {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: $spacing-sm;
+      padding: $spacing-xs;
       color: $text-light;
       transition: all $transition-medium;
-      
+
       i {
-        font-size: $font-size-large;
+        font-size: $font-size-medium; // Reduced from large
         margin-bottom: $spacing-xs;
         color: $primary-violet;
       }
-      
+
       span {
-        font-size: $font-size-small;
+        font-size: 10px; // Reduced from small
+        display: none; // Hide the text, show only on hover
       }
-      
+
       &:hover {
-        transform: translateY(-3px);
-        
+        transform: translateY(-2px); // Reduced from -3px
+
+        span {
+          display: block; // Show text on hover
+        }
+
         i {
           color: $primary-light-purple;
         }
       }
     }
   }
-  
-  .vertical-line {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 70%;
-    background: linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0), 
-      rgba(255, 255, 255, 0.1), 
-      rgba(255, 255, 255, 0));
-  }
+
+  // Removed vertical line as it's not needed with the border-right
 }

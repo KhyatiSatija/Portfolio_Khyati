@@ -1,14 +1,25 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrl: './about.component.scss'
 })
 export class AboutComponent {
   title = 'ABOUT ME';
-  headline = 'Hi, I\'m Khyati Satija';
-  subheadline = 'Software Developer / Content Creator / Dreamer';
+  name = 'Khyati Satija';
+  roles = ['Software Developer', 'Content Creator', 'Dreamer'];
   description = 'Pre-Final Year Undergraduate in Computer Science Engineering with a passion for building innovative solutions. I focus on creating high-quality digital experiences through clean code and creative problem-solving.';
+
+  // Animation state
+  isVisible = false;
+
+  ngOnInit() {
+    // Trigger animations after component loads
+    setTimeout(() => {
+      this.isVisible = true;
+    }, 300);
+  }
 }
