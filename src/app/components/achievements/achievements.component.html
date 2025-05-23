@@ -1,1 +1,170 @@
-<p>achievements works!</p>
+<section class="achievements-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2 class="section-title">Achievements & Recognition</h2>
+      <p class="section-subtitle">
+        A showcase of academic excellence, leadership, and innovation in technology
+      </p>
+    </div>
+
+    <!-- Achievement Stats -->
+    <div class="achievement-stats">
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-content">
+          <span class="stat-number">{{ getTotalAwards() }}</span>
+          <span class="stat-label">Major Awards</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-content">
+          <span class="stat-number">{{ getScholarshipValue() }}</span>
+          <span class="stat-label">Scholarships Earned</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-content">
+          <span class="stat-number">{{ getYearsOfExcellence() }}</span>
+          <span class="stat-label">Years of Excellence</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div class="stat-content">
+          <span class="stat-number">9.91</span>
+          <span class="stat-label">CGPA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-container">
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'all'"
+        (click)="filterAchievements('all')">
+        All Achievements
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'scholarship'"
+        (click)="filterAchievements('scholarship')">
+        Scholarships
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'competition'"
+        (click)="filterAchievements('competition')">
+        Competitions
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'academic'"
+        (click)="filterAchievements('academic')">
+        Academic
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedCategory === 'program'"
+        (click)="filterAchievements('program')">
+        Programs
+      </button>
+    </div>
+
+    <!-- Achievements Grid -->
+    <div class="achievements-grid">
+      <div 
+        *ngFor="let achievement of getFilteredAchievements(); trackBy: trackByAchievement; let i = index"
+        class="achievement-card"
+        [attr.data-category]="achievement.category"
+        [style.animation-delay.ms]="i * 200">
+        
+        <!-- Achievement Header -->
+        <div class="achievement-header" [attr.data-color]="achievement.color">
+          <div class="achievement-icon-container">
+            <span class="achievement-icon">{{ achievement.icon }}</span>
+          </div>
+          <div class="achievement-meta">
+            <h3 class="achievement-title">{{ achievement.title }}</h3>
+            <div class="achievement-org">{{ achievement.organization }}</div>
+            <div class="achievement-period">{{ achievement.period }}</div>
+          </div>
+          <div class="achievement-amount" *ngIf="achievement.amount">
+            {{ achievement.amount }}
+          </div>
+        </div>
+
+        <!-- Achievement Description -->
+        <div class="achievement-description">
+          <p>{{ achievement.description }}</p>
+        </div>
+
+        <!-- Achievement Highlights -->
+        <div class="achievement-highlights">
+          <div class="highlights-title">Key Highlights:</div>
+          <div class="highlights-list">
+            <span 
+              *ngFor="let highlight of achievement.highlights; let last = last"
+              class="highlight-item">
+              {{ highlight }}<span *ngIf="!last" class="highlight-separator">•</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Achievement Footer -->
+        <div class="achievement-footer">
+          <div class="achievement-category">
+            <span class="category-badge" [attr.data-category]="achievement.category">
+              {{ achievement.category | titlecase }}
+            </span>
+          </div>
+          <div class="achievement-glow" [attr.data-color]="achievement.color"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recognition Timeline -->
+    <div class="recognition-timeline">
+      <div class="timeline-header">
+        <h3 class="timeline-title">Recognition Timeline</h3>
+        <div class="timeline-subtitle">Journey of academic and professional excellence</div>
+      </div>
+      
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div 
+          *ngFor="let achievement of achievements; let i = index; let last = last"
+          class="timeline-item"
+          [style.animation-delay.ms]="i * 300 + 500">
+          
+          <div class="timeline-marker" [attr.data-color]="achievement.color">
+            <span class="timeline-icon">{{ achievement.icon }}</span>
+          </div>
+          
+          <div class="timeline-content">
+            <div class="timeline-period">{{ achievement.period }}</div>
+            <div class="timeline-achievement">{{ achievement.title }}</div>
+            <div class="timeline-organization">{{ achievement.organization }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <div class="cta-content">
+        <h3 class="cta-title">Ready to Collaborate?</h3>
+        <p class="cta-description">
+          Let's work together to create innovative solutions and drive technological advancement
+        </p>
+        <button class="cta-button">
+          Get In Touch
+          <span class="cta-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

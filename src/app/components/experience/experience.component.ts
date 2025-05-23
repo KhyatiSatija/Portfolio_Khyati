@@ -1,30 +1,65 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-experience',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './experience.component.html',
-  styleUrl: './experience.component.css'
+  styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent {
+  
   experiences = [
     {
-      title: 'Data Analyst Intern',
+      id: 1,
+      position: 'Software Engineer Intern',
+      company: 'Google',
+      period: 'June - August 2025',
+      type: 'Internship',
+      description: 'Working on cutting-edge software solutions and contributing to large-scale systems that impact millions of users worldwide. Collaborating with senior engineers on innovative projects using modern technologies and agile methodologies.',
+      skills: ['Python', 'Go', 'Cloud Computing', 'System Design'],
+      isLeft: false
+    },
+    {
+      id: 2,
+      position: 'Data Analyst Intern',
       company: 'National Informatics Centre',
-      period: 'July 2024',
-      description: 'Built a Django web app with MS SQL Server, creating dynamic models, views, and templates to support data visualization.'
+      period: 'July - September 2024',
+      type: 'Internship',
+      description: 'Built a comprehensive Django web application integrated with MS SQL Server, creating dynamic models, views, and templates to support advanced data visualization and analytics for government data systems.',
+      skills: ['Django', 'MS SQL Server', 'Data Visualization', 'Python'],
+      isLeft: true
     },
     {
-      title: 'Student Ambassador',
+      id: 3,
+      position: 'Student Ambassador',
       company: 'Bennett University',
-      period: 'June 2023',
-      description: 'Counseled 200+ prospective students, boosting application inquiries by 25%. Coordinated a 3-day summer school for 100 high school students, increasing STEM interest by 40%.'
+      period: 'June 2024',
+      type: 'Leadership',
+      description: 'Led student outreach initiatives, counseling 200+ prospective students and boosting application inquiries by 25%. Successfully coordinated a 3-day summer school program for 100 high school students, increasing STEM interest by 40%.',
+      skills: ['Leadership', 'Communication', 'Event Management', 'Mentoring'],
+      isLeft: false
     },
     {
-      title: 'Women Tech Lead',
-      company: 'Google Developer Student Club',
-      period: 'August 2023',
-      description: 'Conducted multiple technical workshops for 200+ women on coding and skill development.'
+      id:  4,
+      position: 'Women Developer Lead',
+      company : 'Google Developer Groups',
+      period : 'January 2023 - March 2025',
+      type: 'Leadership',
+      description : 'Conducted workshops to empower women in university',
+      skills : ['Leadership', 'Public Speaking', 'Mentorship'],
+      isLeft: true
     }
   ];
+
+  hoveredExperience: number | null = null;
+
+  onMouseEnter(id: number): void {
+    this.hoveredExperience = id;
+  }
+
+  onMouseLeave(): void {
+    this.hoveredExperience = null;
+  }
 }
