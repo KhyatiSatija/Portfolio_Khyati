@@ -1,17 +1,17 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   @Output() modeToggle = new EventEmitter<void>();
-  isTerminalMode = false;
+  @Input() isTerminalMode = false;
   
   toggleMode() {
-    this.isTerminalMode = !this.isTerminalMode;
     this.modeToggle.emit();
   }
 }

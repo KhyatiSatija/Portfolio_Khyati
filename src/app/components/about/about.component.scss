@@ -5,8 +5,9 @@
   min-height: 100vh;
   position: relative;
   background: $primary-dark;
-  overflow: hidden;
-  padding: $spacing-xl;
+  // overflow: hidden;
+  padding: $spacing-sm;
+  margin : -150px auto -300px auto;
   
   @include respond-to(sm) {
     padding: $spacing-lg;
@@ -27,66 +28,67 @@
 .floating-shape {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 0.2;
   animation: float 6s ease-in-out infinite;
   
   &.shape-1 {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, $primary-violet, $primary-purple);
-    top: 10%;
-    right: 15%;
-    animation-delay: 0s;
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(45deg, $primary-violet, $accent-orange, $primary-purple);
+    top: 2%;
+    left: 28%;
+    animation-delay: 1s;
   }
   
   &.shape-2 {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     background: linear-gradient(135deg, $primary-light-purple, $primary-violet);
     bottom: 20%;
-    left: 10%;
+    left: 3%;
     animation-delay: 2s;
   }
   
   &.shape-3 {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background: linear-gradient(225deg, $accent-orange, $primary-purple);
-    top: 50%;
-    left: 5%;
+    top: 42%;
+    left: 1%;
     animation-delay: 4s;
   }
 }
 
 .about-content {
   position: relative;
-  z-index: 2;
+  z-index: 0;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: -80px auto;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 5px;
 }
 
-.section-title {
-  font-size: $font-size-large;
-  letter-spacing: 4px;
-  margin-bottom: $spacing-xl;
-  color: $text-muted;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(20px);
+// .section-title {
+//   font-size: $font-size-large;
+//   letter-spacing: 4px;
+//   margin-bottom: $spacing-md;
+//   color: $text-muted;
+//   font-weight: 600;
+//   opacity: 0;
+//   transform: translateY(20px);
   
-  &.fade-in {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-}
+//   &.fade-in {
+//     animation: fadeInUp 0.8s ease-out forwards;
+//   }
+// }
 
 .main-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-xl * 2;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-xl;
   align-items: center;
   
   @include respond-to(sm) {
@@ -103,6 +105,7 @@
 /* Text Content */
 .text-content {
   opacity: 0;
+  width: 650px;
   transform: translateX(-50px);
   
   &.slide-in-left {
@@ -121,14 +124,14 @@
 }
 
 .wave {
-  font-size: 5rem;
+  font-size: 4rem;
   margin-right: $spacing-md;
   animation: wave 2s ease-in-out infinite;
 }
 
 .name-intro {
-  font-size: $font-size-xl;
-  font-weight: 400;
+  font-size: $font-size-hero !important;
+  font-weight: 450;
   color: $text-light;
   margin: 0;
   
@@ -138,7 +141,7 @@
 }
 
 .name-highlight {
-  @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple));
+  @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple, $primary-purple));
   font-weight: 700;
 }
 
@@ -147,7 +150,7 @@
 }
 
 .headline {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: $font-size-xxl;
   font-weight: 600;
   line-height: 1.3;
   margin: 0.5rem 0;
@@ -204,108 +207,6 @@
   }
 }
 
-.highlights {
-  margin-bottom: $spacing-xl;
-}
-
-.highlight-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: $spacing-sm;
-  opacity: 0;
-  transform: translateX(-20px);
-  animation: slideInLeft 0.6s ease-out forwards;
-  
-  @include respond-to(sm) {
-    justify-content: center;
-  }
-}
-
-.highlight-dot {
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(45deg, $primary-violet, $primary-light-purple);
-  border-radius: 50%;
-  margin-right: $spacing-md;
-}
-
-.cta-container {
-  display: flex;
-  gap: $spacing-lg;
-  
-  @include respond-to(sm) {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  @include respond-to(md) {
-    flex-direction: row;
-  }
-}
-
-.btn {
-  position: relative;
-  padding: $spacing-md $spacing-xl;
-  font-size: $font-size-medium;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all $transition-medium;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: $spacing-sm;
-  
-  &:hover {
-    transform: translateY(-3px);
-  }
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, $primary-violet, $primary-purple);
-  color: $text-light;
-  border: none;
-  box-shadow: 0 4px 15px rgba($primary-violet, 0.4);
-  
-  &:hover {
-    box-shadow: 0 8px 25px rgba($primary-violet, 0.6);
-    
-    .btn-glow {
-      opacity: 1;
-    }
-  }
-}
-
-.btn-glow {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: all 0.6s;
-  opacity: 0;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid $primary-violet;
-  color: $primary-violet;
-  
-  &:hover {
-    background: rgba($primary-violet, 0.1);
-    color: $primary-light-purple;
-  }
-}
-
-.download-icon {
-  transition: transform $transition-medium;
-}
-
-.btn-outline:hover .download-icon {
-  transform: translateY(2px);
-}
-
 /* Image Content */
 .image-content {
   position: relative;
@@ -331,9 +232,9 @@
 .profile-image {
 
   position: relative;
-  width: 350px;
-  height: 450px;
-  margin-top: -250px;
+  width: 300px;
+  height: 400px;
+  margin-top: -50px;
   
   @include respond-to(sm) {
     width: 280px;
@@ -344,7 +245,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 10%;
     position: relative;
     z-index: 2;
   }
@@ -363,10 +264,10 @@
 
 .image-glow {
   position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
+  top: -25px;
+  left: -25px;
+  right: -25px;
+  bottom: -25px;
   background: linear-gradient(45deg, $primary-violet, $primary-light-purple);
   border-radius: 30px;
   opacity: 0.3;
@@ -388,8 +289,8 @@
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background: $primary-violet;
   border-radius: 50%;
   opacity: 0.6;
@@ -403,6 +304,8 @@
   &:nth-child(6) { left: 70%; animation-delay: 5s; }
   &:nth-child(7) { left: 80%; animation-delay: 6s; }
   &:nth-child(8) { left: 90%; animation-delay: 7s; }
+  &:nth-child(9) { left: 100%; animation-delay: 8s; }
+
 }
 
 /* Animations */

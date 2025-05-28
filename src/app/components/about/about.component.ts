@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
 export class AboutComponent {
   title = 'ABOUT ME';
   name = 'Khyati Satija';
-  roles = ['Software Developer', 'Content Creator', 'Dreamer'];
-  description = 'Pre-Final Year Undergraduate in Computer Science Engineering with a passion for building innovative solutions. I focus on creating high-quality digital experiences through clean code and creative problem-solving.';
+  roles = ['Software Developer', 'Content Creator', 'Dreamer', 'Engineer'];
+  description = 'Final Year Undergraduate in Computer Science Engineering with a passion for building innovative solutions. I focus on creating high-quality digital experiences through clean code and creative problem-solving.';
 
   // Animation state
   isVisible = false;
@@ -20,6 +20,6 @@ export class AboutComponent {
     // Trigger animations after component loads
     setTimeout(() => {
       this.isVisible = true;
-    }, 300);
+    }, 100);
   }
 }

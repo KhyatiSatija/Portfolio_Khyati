@@ -1,4 +1,3 @@
-// src/app/components/sidebar-left/sidebar-left.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 interface SocialLink {
@@ -32,12 +31,12 @@ export class SidebarLeftComponent {
     },
     {
       name: 'YouTube',
-      url: '#',
+      url: 'https://www.youtube.com/@KhyatiSatija',
       icon: 'fab fa-youtube'
     },
     {
       name: 'Instagram',
-      url: '#',
+      url: 'https://www.instagram.com/khyatisatija443/',
       icon: 'fab fa-instagram'
     }
   ];

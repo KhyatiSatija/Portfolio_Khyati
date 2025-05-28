@@ -6,7 +6,7 @@
   top: $header-height;
   left: 0; // Change from 80px to 0
   height: calc(100vh - #{$header-height});
-  width: 60px; // Reduced from sidebar-width variable
+  width: 100px; // Reduced from sidebar-width variable
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,8 +21,8 @@
     margin-bottom: $spacing-md;
 
     .logo-circle {
-      width: 36px; // Reduced from 60px
-      height: 36px; // Reduced from 60px
+      width: 55px; // Reduced from 60px
+      height: 55px; // Reduced from 60px
       border-radius: 50%;
       background: linear-gradient(135deg, $primary-violet, $primary-purple);
       @include flex-center;
@@ -43,16 +43,17 @@
 
     ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 18px;
+      margin: 15px;
 
       li {
         margin-bottom: $spacing-md;
+        padding: 5px;
 
         a {
           display: block;
-          width: 32px; // Reduced from 40px
-          height: 32px; // Reduced from 40px
+          width: 45px; 
+          height: 45px; 
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.05);
           @include flex-center;
@@ -60,22 +61,34 @@
 
           i {
             color: $text-light;
-            font-size: $font-size-small; // Reduced from medium
+            font-size: $font-size-small; 
           }
 
           &:hover {
             background: $primary-violet;
-            transform: translateY(-2px); // Reduced from -3px
+            transform: translateY(-2px); 
 
             i {
               color: white;
             }
           }
         }
+        span {
+          font-size: 10px;
+
+          display: none;
+        }
       }
     }
   }
-
+  .social-links ul li:hover span {
+    display: block;
+  }
+  .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .resume-button {
     margin-top: auto;
     margin-bottom: $spacing-md;
@@ -89,13 +102,13 @@
       transition: all $transition-medium;
 
       i {
-        font-size: $font-size-medium; // Reduced from large
+        font-size: $font-size-large; 
         margin-bottom: $spacing-xs;
         color: $primary-violet;
       }
 
       span {
-        font-size: 10px; // Reduced from small
+        font-size: 15px; // Reduced from small
         display: none; // Hide the text, show only on hover
       }
 

@@ -1,6 +1,6 @@
 <!-- <html>, <head>, and <body> tags is not correct for Angular components. Those belong in index.html, not in a component's template. -->
 <div class="app-container" [ngClass]="{'terminal-mode': isTerminalMode, 'gui-mode': !isTerminalMode}">
-  <app-header (modeToggle)="toggleMode()"></app-header>
+  <app-header (modeToggle)="toggleMode()" [isTerminalMode]="isTerminalMode"></app-header>
 
   <div *ngIf="!isTerminalMode" class="gui-content">
     <app-sidebar-left></app-sidebar-left>

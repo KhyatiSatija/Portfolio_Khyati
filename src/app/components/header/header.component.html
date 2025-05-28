@@ -1,4 +1,3 @@
-<!-- src/app/components/header/header.component.html -->
 <header class="header">
     <div class="container">
       <div class="header-content">
@@ -7,10 +6,18 @@
         </div>
         
         <div class="mode-toggle">
-          <button (click)="toggleMode()" class="toggle-button">
-            {{ isTerminalMode ? 'GUI' : 'CLI' }}
-          </button>
+          <div class="toggle-container">
+            <span class="toggle-label">{{ isTerminalMode ? 'GUI' : 'GUI' }}</span>
+            <div class="slide-toggle" (click)="toggleMode()">
+              <div class="toggle-track" [class.active]="isTerminalMode">
+                <div class="toggle-thumb" [class.active]="isTerminalMode">
+                  <i class="toggle-icon" [ngClass]="isTerminalMode ? 'fas fa-terminal' : 'fas fa-desktop'"></i>
+                </div>
+              </div>
+            </div>
+            <span class="toggle-label">{{ isTerminalMode ? 'CLI' : 'CLI' }}</span>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+</header>
