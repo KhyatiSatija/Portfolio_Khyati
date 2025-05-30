@@ -244,47 +244,6 @@
   }
 }
 
-.stats-section {
-  @include flex-center;
-  gap: $spacing-xl;
-  padding: $spacing-xl 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: $spacing-xl;
-
-  @include respond-to(md) {
-    gap: $spacing-lg;
-  }
-
-  .stat-item {
-    text-align: center;
-    
-    .stat-number {
-      display: block;
-      font-size: $font-size-xxl;
-      font-weight: 700;
-      @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple));
-      margin-bottom: $spacing-xs;
-    }
-
-    .stat-label {
-      font-size: $font-size-small;
-      color: $text-muted;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-
-    @include respond-to(md) {
-      display: none;
-    }
-  }
-}
-
 // Animations
 @keyframes fadeInUp {
   from {
@@ -320,14 +279,5 @@
 
   .extracurriculars-grid {
     gap: $spacing-lg;
-  }
-
-  .stats-section {
-    flex-direction: column;
-    gap: $spacing-md;
-
-    .stat-divider {
-      display: none;
-    }
   }
 }

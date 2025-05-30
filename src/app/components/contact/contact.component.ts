@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   contactInfo = {
-    name: 'Andre Jilderda',
-    title: 'Freelance front-end developer',
-    phone: '+316 208 42 105',
-    email: 'mail@andrejilderda.nl',
+    name: 'Khyati Satija',
+    title: 'Software Engineer',
+    phone: '+91 836859XXXX',
+    email: 'satijakhyati2003@gmail.com',
     linkedin: 'LinkedIn',
-    profileImage: 'assets/images/profile.jpg'
+    profileImage: 'khyati_head_shot.jpeg'
   };
 
   onPhoneClick() {
@@ -24,6 +24,6 @@ export class ContactComponent {
   }
 
   onLinkedInClick() {
-    window.open('https://linkedin.com/in/andrejilderda', '_blank');
+    window.open('https://www.linkedin.com/in/khyati-satija-computer-science/', '_blank');
   }
 }

@@ -48,10 +48,10 @@
             margin-right: $spacing-sm;
             transition: all $transition-fast;
             
-            &.active {
-              background-color: $primary-violet;
-              box-shadow: 0 0 8px rgba($primary-violet, 0.6);
-            }
+            // &.active {
+            //   background-color: $primary-violet;
+            //   box-shadow: 0 0 8px rgba($primary-violet, 0.6);
+            // }
           }
           
           .nav-text {
@@ -62,7 +62,7 @@
           }
           
           &:hover, &.active {
-            background-color: rgba(255, 255, 255, 0.05);
+            // background-color: rgba(255, 255, 255, 0.05);
             
             .nav-text {
               opacity: 1;

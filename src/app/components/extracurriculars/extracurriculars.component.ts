@@ -67,14 +67,6 @@ export class ExtracurricularsComponent {
 
   constructor() { }
 
-  onCardHover(card: Extracurricular): void {
-    // Optional: Add any hover logic here
-  }
-
-  onCardLeave(card: Extracurricular): void {
-    // Optional: Add any hover leave logic here
-  }
-
   trackByFn(index: number, item: Extracurricular): number {
     return item.id;
   }

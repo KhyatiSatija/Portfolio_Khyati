@@ -47,7 +47,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 
     @include respond-to(md) {

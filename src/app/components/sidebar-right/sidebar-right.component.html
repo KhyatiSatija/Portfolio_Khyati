@@ -1,18 +1,20 @@
-<!-- src/app/components/sidebar-right/sidebar-right.component.html -->
 <div class="sidebar-right">
-    <nav class="navigation">
-      <ul>
-        <li *ngFor="let link of navLinks">
-          <a [href]="link.link" [class.active]="link.active">
-            <span class="nav-indicator" [class.active]="link.active"></span>
-            <span class="nav-text">{{ link.name }}</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="vertical-line"></div>
-    <div class="scroll-progress">
-      <div class="progress-bar" id="scrollProgressBar"></div>
-    </div>
+  <nav class="navigation">
+    <ul>
+      <li *ngFor="let link of navLinks">
+        <a [href]="link.link" 
+           [ngClass]="{ 'active': link.id === activeSection }"
+           (click)="scrollToSection($event, link.link)">
+          <span class="nav-indicator" [ngClass]="{ 'active': link.id === activeSection }"></span>
+          <span class="nav-text">{{ link.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="vertical-line"></div>
+
+  <div class="scroll-progress">
+    <div class="progress-bar" id="scrollProgressBar"></div>
   </div>
+</div>

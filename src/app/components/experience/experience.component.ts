@@ -18,7 +18,7 @@ export class ExperienceComponent {
       period: 'June - August 2025',
       type: 'Internship',
       description: 'Working on cutting-edge software solutions and contributing to large-scale systems that impact millions of users worldwide. Collaborating with senior engineers on innovative projects using modern technologies and agile methodologies.',
-      skills: ['Python', 'Go', 'Cloud Computing', 'System Design'],
+      skills: ['Software Engineering', 'System Design', 'Java', 'Clean Code'],
       isLeft: false
     },
     {
@@ -47,9 +47,19 @@ export class ExperienceComponent {
       company : 'Google Developer Groups',
       period : 'January 2023 - March 2025',
       type: 'Leadership',
-      description : 'Conducted workshops to empower women in university',
+      description : 'Conducted multiple workshops to empower 300+ women in university',
       skills : ['Leadership', 'Public Speaking', 'Mentorship'],
       isLeft: true
+    },
+        {
+      id:  5,
+      position: 'Tutor',
+      company : 'Semesterly.in',
+      period : 'May 2024 - February 2025',
+      type: 'Teaching',
+      description : 'Took online sessions for school and college students teaching Mathematics and DSA respectively',
+      skills : ['Teaching', 'Communication', 'Mentorship'],
+      isLeft: false
     }
   ];
 

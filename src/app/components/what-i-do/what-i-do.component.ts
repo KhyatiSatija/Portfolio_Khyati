@@ -17,7 +17,7 @@ export class WhatIDoComponent {
     },
     {
       title: 'CONTENT CREATION',
-      description: 'Creating engaging digital content including technical tutorials, blogs, videos, and educational materials. Specializing in making complex concepts accessible and interesting.'
+      description: 'Creating engaging digital content including lifestyle vlogs, focussing on showing the behind the scenes in my tech life'
     },
     {
       title: 'WEB DEVELOPMENT',
@@ -33,7 +33,7 @@ export class WhatIDoComponent {
     },
     {
       title: 'TEACHING',
-      description: 'Mentoring and educating aspiring developers through workshops, tutorials, and one-on-one guidance. Passionate about sharing knowledge and helping others grow in tech.'
+      description: 'Mentoring and educating students through workshops, tutorials, and one-on-one guidance. Passionate about sharing knowledge and helping others grow.'
     }
   ];
 

@@ -1,12 +1,10 @@
-// src/app/components/sidebar-right/sidebar-right.component.ts
-import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, Input, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface NavLink {
   name: string;
   link: string;
-  active: boolean;
+  id: string; // Add id for easier comparison
 }
 
 @Component({
@@ -16,58 +14,67 @@ interface NavLink {
   styleUrls: ['./sidebar-right.component.scss']
 })
 export class SidebarRightComponent implements OnInit {
-  private isBrowser: boolean;
-  
+  @Input() activeSection: string = 'about';
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   navLinks: NavLink[] = [
-    { name: 'About', link: '#about', active: true },
-    { name: 'What I Do', link: '#what-i-do', active: false },
-    { name: 'Experience', link: '#experience', active: false },
-    { name: 'Projects', link: '#projects', active: false },
-    { name: 'Skills', link: '#skills', active: false},
-    { name: 'Education', link: '#education', active: false },
-    { name: 'Achievements', link: '#achievements', active: false },
-    { name: 'Extracurriculars', link: '#extracurriculars', active: false },
-    { name: 'Contact', link: '#contact', active: false }
+    { name: 'About', link: '#about', id: 'about' },
+    { name: 'What I Do', link: '#what-i-do', id: 'what-i-do' },
+    { name: 'Experience', link: '#experience', id: 'experience' },
+    { name: 'Projects', link: '#projects', id: 'projects' },
+    { name: 'Skills', link: '#skills', id: 'skills' },
+    { name: 'Education', link: '#education', id: 'education' },
+    { name: 'Achievements', link: '#achievements', id: 'achievements' },
+    { name: 'Extracurriculars', link: '#extracurriculars', id: 'extracurriculars' },
+    { name: 'Contact', link: '#contact', id: 'contact' }
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
-  ngOnInit() {
-    if (this.isBrowser) {
-      this.onWindowScroll(); 
+  ngOnInit(): void {
+    // Only run in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupScrollProgress();
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll() {
-    // Only execute scroll logic in browser
-    if (!this.isBrowser) return;
-
-    const sections = document.querySelectorAll('section');
-    let current = '';
-
-    for (const section of Array.from(sections)) {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= sectionTop - 100) { // Use -100 for better accuracy
-        current = section.getAttribute('id') || '';
-      }
+  private setupScrollProgress(): void {
+    // Double-check we're in browser environment
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
-
-    this.navLinks.forEach(link => {
-      link.active = link.link === `#${current}`;
-    });
-
-    // Scroll progress calculation
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
 
     const progressBar = document.getElementById('scrollProgressBar');
-    if (progressBar) {
+    if (!progressBar) return;
+
+    const updateScrollProgress = () => {
+      if (!isPlatformBrowser(this.platformId)) return;
+      
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
       progressBar.style.height = `${scrollPercent}%`;
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress(); // Initial call
+  }
+
+  // Method to handle smooth scrolling when clicking nav links
+  scrollToSection(event: Event, link: string): void {
+    // Only run in browser environment
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    event.preventDefault();
+    const targetId = link.substring(1); // Remove the '#' from the link
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   }
 }

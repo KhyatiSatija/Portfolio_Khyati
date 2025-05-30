@@ -2,15 +2,15 @@
 @import '../../../styles/mixins';
 
 .contact-section {
-  padding: $spacing-xl 0;
+  padding: $spacing-xs 0;
   background: $primary-dark;
-  min-height: 100vh;
+  min-height: 40vh;
   @include flex-center;
   
   .container {
-    max-width: 600px;
+    max-width: 1000px;
     width: 100%;
-    padding: 0 $spacing-lg;
+    padding: 0 $spacing-xs;
   }
 }
 
@@ -18,19 +18,22 @@
   @include section-heading;
   color: $text-light;
   text-align: center;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-md;
 }
 
 .business-card {
   @include card;
   position: relative;
   overflow: hidden;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   
   .card-content {
     position: relative;
+    display: flex !important;
+    flex-direction: row;
     z-index: 2;
+    justify-content: space-between;
   }
   
   .card-accent {

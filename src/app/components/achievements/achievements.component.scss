@@ -58,55 +58,6 @@
   }
 }
 
-// Achievement Stats
-.achievement-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-lg;
-  margin-bottom: $spacing-xl;
-}
-
-.stat-card {
-  @include card;
-  @include flex-vertical-center;
-  gap: $spacing-md;
-  padding: $spacing-lg;
-  text-align: center;
-  animation: slideInUp 0.6s ease-out both;
-  
-  &:nth-child(1) { animation-delay: 0.1s; }
-  &:nth-child(2) { animation-delay: 0.2s; }
-  &:nth-child(3) { animation-delay: 0.3s; }
-  &:nth-child(4) { animation-delay: 0.4s; }
-
-  &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);
-  }
-
-  .stat-icon {
-    font-size: 2.5rem;
-    margin-bottom: $spacing-sm;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  }
-
-  .stat-content {
-    .stat-number {
-      display: block;
-      @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple));
-      font-size: $font-size-xxl;
-      font-weight: 700;
-      margin-bottom: $spacing-xs;
-    }
-
-    .stat-label {
-      color: $text-muted;
-      font-size: $font-size-medium;
-      font-weight: 500;
-    }
-  }
-}
-
 // Filter Buttons
 .filter-container {
   @include flex-center;
@@ -354,219 +305,6 @@
   }
 }
 
-// Recognition Timeline
-.recognition-timeline {
-  margin: $spacing-xl 0;
-  @include card;
-  padding: $spacing-xl;
-}
-
-.timeline-header {
-  text-align: center;
-  margin-bottom: $spacing-xl;
-
-  .timeline-title {
-    @include gradient-text(linear-gradient(135deg, $primary-violet, $accent-orange));
-    font-size: $font-size-xl;
-    font-weight: 600;
-    margin-bottom: $spacing-sm;
-  }
-
-  .timeline-subtitle {
-    color: $text-muted;
-    font-size: $font-size-medium;
-  }
-}
-
-.timeline-container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline-line {
-  position: absolute;
-  left: 30px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, $primary-violet, $primary-purple, $accent-orange);
-  border-radius: 1px;
-
-  @include respond-to(md) {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: $spacing-xl;
-  animation: slideInLeft 0.6s ease-out both;
-
-  @include respond-to(md) {
-    &:nth-child(even) {
-      animation: slideInRight 0.6s ease-out both;
-
-      .timeline-content {
-        text-align: right;
-        transform: translateX(-50px);
-
-        @include respond-to(md) {
-          transform: translateX(-100%);
-        }
-      }
-
-      .timeline-marker {
-        @include respond-to(md) {
-          transform: translateX(-50%);
-        }
-      }
-    }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.timeline-marker {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  @include flex-center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 3px solid $primary-violet;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 2;
-
-  @include respond-to(md) {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-icon {
-    font-size: 1.2rem;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  }
-
-  &[data-color="google"] {
-    border-color: #4CAF50;
-    background: rgba(76, 175, 80, 0.2);
-  }
-
-  &[data-color="talent"] {
-    border-color: #2196F3;
-    background: rgba(33, 150, 243, 0.2);
-  }
-
-  &[data-color="hackathon"] {
-    border-color: $accent-orange;
-    background: rgba(255, 99, 71, 0.2);
-  }
-
-  &[data-color="academic"] {
-    border-color: $primary-violet;
-    background: rgba(138, 43, 226, 0.2);
-  }
-}
-
-.timeline-content {
-  margin-left: 80px;
-  padding: $spacing-md;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  @include respond-to(md) {
-    margin-left: 0;
-    transform: translateX(50px);
-    max-width: 400px;
-  }
-
-  .timeline-period {
-    color: $accent-orange;
-    font-size: $font-size-small;
-    font-weight: 600;
-    margin-bottom: $spacing-xs;
-  }
-
-  .timeline-achievement {
-    color: $text-light;
-    font-size: $font-size-medium;
-    font-weight: 600;
-    margin-bottom: $spacing-xs;
-    line-height: 1.3;
-  }
-
-  .timeline-organization {
-    color: $text-muted;
-    font-size: $font-size-small;
-  }
-}
-
-// Call to Action
-.cta-section {
-  text-align: center;
-  margin-top: $spacing-xl;
-  padding: $spacing-xl;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(76, 0, 153, 0.1));
-  border-radius: 12px;
-  border: 1px solid rgba(138, 43, 226, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.cta-content {
-  max-width: 600px;
-  margin: 0 auto;
-
-  .cta-title {
-    @include gradient-text(linear-gradient(135deg, $primary-violet, $primary-light-purple));
-    font-size: $font-size-xl;
-    font-weight: 600;
-    margin-bottom: $spacing-md;
-  }
-
-  .cta-description {
-    color: $text-muted;
-    font-size: $font-size-medium;
-    line-height: 1.6;
-    margin-bottom: $spacing-lg;
-  }
-
-  .cta-button {
-    @include button;
-    @include flex-center;
-    gap: $spacing-sm;
-    font-size: $font-size-medium;
-    padding: $spacing-md $spacing-xl;
-    border-radius: 25px;
-    background: linear-gradient(135deg, $primary-violet, $primary-purple);
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-    
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
-      
-      .cta-arrow {
-        transform: translateX(5px);
-      }
-    }
-
-    .cta-arrow {
-      transition: transform $transition-fast;
-      font-size: $font-size-large;
-    }
-  }
-}
-
 // Animations
 @keyframes fadeInUp {
   from {
@@ -622,11 +360,6 @@
     font-size: $font-size-xl;
   }
 
-  .achievement-stats {
-    grid-template-columns: 1fr;
-    gap: $spacing-md;
-  }
-
   .achievements-grid {
     grid-template-columns: 1fr;
     gap: $spacing-lg;
@@ -644,22 +377,6 @@
       text-align: center;
     }
   }
-
-  .timeline-container {
-    padding: 0 $spacing-md;
-  }
-
-  .timeline-content {
-    margin-left: 60px;
-    
-    @include respond-to(md) {
-      margin-left: 0;
-    }
-  }
-
-  .cta-section {
-    padding: $spacing-lg;
-  }
 }
 
 // Dark theme enhancements
@@ -668,9 +385,7 @@
     background: lighten($primary-dark, 2%);
   }
 
-  .achievement-card,
-  .stat-card,
-  .recognition-timeline {
+  .achievement-card {
     background: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.08);
   }
@@ -678,8 +393,7 @@
 
 // High contrast mode support
 @media (prefers-contrast: high) {
-  .achievement-card,
-  .stat-card {
+  .achievement-card {
     border-width: 2px;
     border-color: rgba(255, 255, 255, 0.3);
   }

@@ -86,20 +86,8 @@
                 </span>
               </div>
 
-              <!-- Skill Info -->
-              <div class="skill-info">
-                <span class="skill-name">{{ skill.name }}</span>
-                <div class="skill-level-container">
-                  <div class="skill-level-bar">
-                    <div 
-                      class="skill-level-fill" 
-                      [style.width.%]="skill.level"
-                      [style.animation-delay.ms]="(categoryIndex * 100) + (skillIndex * 50) + 200">
-                    </div>
-                  </div>
-                  <span class="skill-percentage">{{ skill.level }}%</span>
-                </div>
-              </div>
+              <!-- Skill Name -->
+              <span class="skill-name">{{ skill.name }}</span>
             </div>
 
             <!-- Hover Effect -->
@@ -126,22 +114,5 @@
       </div>
     </div>
 
-    <!-- Skills Summary -->
-    <div class="skills-summary">
-      <div class="summary-stats">
-        <div class="stat-item">
-          <span class="stat-number">{{ getTotalSkillsCount() }}</span>
-          <span class="stat-label">Total Skills</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">{{ skillCategories.length }}</span>
-          <span class="stat-label">Categories</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">5+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>

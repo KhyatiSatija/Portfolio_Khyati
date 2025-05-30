@@ -14,8 +14,6 @@
         class="extracurricular-card" 
         [class]="'card--' + activity.color"
         *ngFor="let activity of extracurriculars; trackBy: trackByFn"
-        (mouseenter)="onCardHover(activity)"
-        (mouseleave)="onCardLeave(activity)"
       >
         <!-- Card Header -->
         <div class="card-header">
@@ -53,24 +51,6 @@
         <div class="card-footer">
           <div class="card-accent"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- Bottom Statistics -->
-    <div class="stats-section">
-      <div class="stat-item">
-        <span class="stat-number">200+</span>
-        <span class="stat-label">Women Trained</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">3</span>
-        <span class="stat-label">Leadership Roles</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">4+</span>
-        <span class="stat-label">Months Active</span>
       </div>
     </div>
   </div>
