@@ -4,9 +4,9 @@
 .sidebar-left {
   position: fixed;
   top: $header-height;
-  left: 0; // Change from 80px to 0
+  left: 0;
   height: calc(100vh - #{$header-height});
-  width: 100px; // Reduced from sidebar-width variable
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,8 +21,8 @@
     margin-bottom: $spacing-md;
 
     .logo-circle {
-      width: 55px; // Reduced from 60px
-      height: 55px; // Reduced from 60px
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       background: linear-gradient(135deg, $primary-violet, $primary-purple);
       @include flex-center;
@@ -30,7 +30,7 @@
       span {
         color: white;
         font-weight: bold;
-        font-size: $font-size-medium; // Reduced from large
+        font-size: $font-size-medium;
       }
     }
   }
@@ -75,7 +75,6 @@
         }
         span {
           font-size: 10px;
-
           display: none;
         }
       }
@@ -108,15 +107,15 @@
       }
 
       span {
-        font-size: 15px; // Reduced from small
-        display: none; // Hide the text, show only on hover
+        font-size: 15px;
+        display: none;
       }
 
       &:hover {
-        transform: translateY(-2px); // Reduced from -3px
+        transform: translateY(-2px);
 
         span {
-          display: block; // Show text on hover
+          display: block;
         }
 
         i {
@@ -125,6 +124,87 @@
       }
     }
   }
+}
 
-  // Removed vertical line as it's not needed with the border-right
+// Tablet: Keep left sidebar visible but reduce size
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar-left {
+    width: 80px;
+    
+    .logo .logo-circle {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .social-links ul li a {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+// Mobile: Keep visible but smaller
+@media (max-width: 768px) {
+  .sidebar-left {
+    width: 60px;
+    padding: $spacing-md 0;
+    
+    .logo .logo-circle {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .social-links ul {
+      padding: 10px;
+      margin: 10px;
+      
+      li a {
+        width: 35px;
+        height: 35px;
+        
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+    
+    .resume-button .download-btn i {
+      font-size: $font-size-medium;
+    }
+  }
+}
+
+// Extra small mobile: Even smaller but still visible
+@media (max-width: 480px) {
+  .sidebar-left {
+    width: 50px;
+    padding: $spacing-sm 0;
+    
+    .logo .logo-circle {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .social-links ul {
+      padding: 8px;
+      margin: 8px;
+      
+      li {
+        margin-bottom: $spacing-sm;
+        
+        a {
+          width: 30px;
+          height: 30px;
+          
+          i {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    
+    .resume-button .download-btn i {
+      font-size: $font-size-small;
+    }
+  }
 }
